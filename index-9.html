@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>Matemática Fácil | Estudar e Praticar</title>
+<style>
+:root{--bg:#0b1220;--panel:#131e30;--panel2:#19273d;--text:#edf4ff;--muted:#aab8cf;--blue:#67b7ff;--green:#70e1b2;--yellow:#ffd166;--border:#2a3a53}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(145deg,#0b1220,#101c31 65%,#102b38);color:var(--text);line-height:1.6}
+header{padding:24px 18px 18px;max-width:1100px;margin:auto}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#67b7ff,#70e1b2);display:grid;place-items:center;color:#091421;font-weight:900;font-size:24px}
+h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.1;margin:24px 0 10px}h2{margin-top:0}p{color:var(--muted)}.hero p{max-width:650px;font-size:1.05rem}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.pill{border:1px solid var(--border);border-radius:999px;padding:6px 12px;color:#d9e9ff;font-size:.9rem}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 6px}.tab{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:10px 15px;border-radius:12px;font-weight:700;cursor:pointer}.tab.active,.tab:hover{background:var(--blue);color:#071322;border-color:var(--blue)}
+main{max-width:1100px;margin:auto;padding:8px 18px 45px}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}.card{background:rgba(19,30,48,.94);border:1px solid var(--border);border-radius:18px;padding:20px;margin-bottom:16px}.card h3{margin:0 0 8px}.math{background:#091321;border:1px solid #263c56;padding:12px 15px;border-radius:12px;color:#a9dcff;font-size:1.15rem;overflow-wrap:anywhere}.tip{border-left:4px solid var(--green);padding:10px 13px;background:#102a2a;border-radius:0 10px 10px 0;color:#d8fff0;margin-top:12px}.warn{border-left:4px solid var(--yellow);padding:10px 13px;background:#302819;border-radius:0 10px 10px 0;color:#fff1c8;margin-top:12px}
+button,.button{font:inherit}.action{background:var(--green);border:0;border-radius:11px;padding:10px 15px;font-weight:800;color:#082016;cursor:pointer;margin-top:10px}.action.secondary{background:#253750;color:var(--text);border:1px solid var(--border)}label{display:block;margin:12px 0 5px;font-weight:650}input,select{width:100%;padding:12px;background:#091321;border:1px solid var(--border);border-radius:10px;color:var(--text);font:inherit} .feedback{min-height:28px;font-weight:700;margin-top:10px}.correct{color:var(--green)}.wrong{color:#ffb5a8}.question{padding:14px 0;border-bottom:1px solid var(--border)}.question:last-child{border:0}.options{display:grid;gap:7px;margin-top:8px}.opt{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid var(--border);border-radius:10px;cursor:pointer}.opt input{width:auto}.progress{height:8px;background:#26364d;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));transition:width .3s}footer{text-align:center;color:var(--muted);padding:20px;border-top:1px solid var(--border)}.small{font-size:.9rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">∑</div><div><strong>MATEMÁTICA FÁCIL</strong><div class="small">Aprende • Pratica • Evolui</div></div></div>
+  <div class="hero">
+    <h1>Aprende Matemática<br><span style="color:var(--blue)">passo a passo.</span></h1>
+    <p>Estuda potências e radicais com regras claras, exemplos resolvidos e exercícios com correção imediata. Aprende ao teu ritmo!</p>
+    <div class="pills"><span class="pill">📘 Explicações simples</span><span class="pill">✏️ Exercícios interativos</span><span class="pill">📱 Adaptado ao telemóvel</span></div>
+  </div>
+  <nav aria-label="Navegação principal">
+    <button class="tab active" data-tab="inicio">Início</button>
+    <button class="tab" data-tab="potencias">Potências</button>
+    <button class="tab" data-tab="radicais">Radicais</button>
+    <button class="tab" data-tab="pratica">Praticar</button>
+  </nav>
+</header>
+<main>
+<section id="inicio" class="section active">
+  <div class="grid">
+    <article class="card"><h2>🔢 Potências</h2><p>Aprende a trabalhar com base, expoente, produto, quociente e expoentes negativos.</p><div class="math">aⁿ = a × a × … × a</div><button class="action" data-go="potencias">Estudar potências →</button></article>
+    <article class="card"><h2>√ Radicais</h2><p>Descobre raízes quadradas e cúbicas, simplificação e operações com radicais.</p><div class="math">√25 = 5, porque 5² = 25</div><button class="action" data-go="radicais">Estudar radicais →</button></article>
+  </div>
+  <div class="card"><h2>O teu progresso</h2><p>Responde aos exercícios e acompanha a tua pontuação nesta sessão.</p><div class="progress"><span id="progressBar"></span></div><p id="progressText">Ainda não respondeste a exercícios.</p></div>
+  <div class="card"><h3>Como estudar melhor</h3><ol><li>Lê a regra com atenção.</li><li>Observa o exemplo resolvido.</li><li>Tenta resolver sem olhar para a resposta.</li><li>Corrige os erros e tenta novamente.</li></ol></div>
+</section>
+<section id="potencias" class="section">
+  <div class="card"><h2>📘 Potências</h2><p>Uma potência representa uma multiplicação repetida de fatores iguais.</p><div class="math">aⁿ = a × a × ... × a</div><p>Em 2⁴, o número 2 é a <b>base</b> e o número 4 é o <b>expoente</b>.</p><div class="math">2⁴ = 2 × 2 × 2 × 2 = 16</div></div>
+  <div class="grid">
+    <div class="card"><h3>1. Produto de potências com a mesma base</h3><div class="math">aᵐ × aⁿ = aᵐ⁺ⁿ</div><p>Somam-se os expoentes.</p><div class="math">3² × 3³ = 3⁵ = 243</div></div>
+    <div class="card"><h3>2. Quociente de potências com a mesma base</h3><div class="math">aᵐ ÷ aⁿ = aᵐ⁻ⁿ (a ≠ 0)</div><p>Subtraem-se os expoentes.</p><div class="math">5⁴ ÷ 5² = 5² = 25</div></div>
+    <div class="card"><h3>3. Potência de uma potência</h3><div class="math">(aᵐ)ⁿ = aᵐˣⁿ</div><p>Multiplicam-se os expoentes.</p><div class="math">(2³)² = 2⁶ = 64</div></div>
+    <div class="card"><h3>4. Expoente zero e negativo</h3><div class="math">a⁰ = 1 (a ≠ 0)<br>a⁻ⁿ = 1/aⁿ</div><p>Exemplos:</p><div class="math">7⁰ = 1<br>2⁻³ = 1/2³ = 1/8</div></div>
+  </div>
+  <div class="card"><h3>Exemplo resolvido</h3><p>Simplifica 2³ × 2².</p><ol><li>As bases são iguais: mantemos a base 2.</li><li>Somamos os expoentes: 3 + 2 = 5.</li><li>Resultado: 2⁵ = 32.</li></ol><div class="tip">Dica: só somas ou subtrais expoentes diretamente quando as bases são iguais.</div></div>
+</section>
+<section id="radicais" class="section">
+  <div class="card"><h2>√ Radicais</h2><p>Um radical representa uma raiz. A raiz quadrada de um número é o valor que, multiplicado por si próprio, dá esse número.</p><div class="math">√36 = 6, porque 6 × 6 = 36</div><p>Na raiz cúbica, procuramos o número que multiplicado três vezes por si próprio dá o radicando.</p><div class="math">∛27 = 3, porque 3 × 3 × 3 = 27</div></div>
+  <div class="grid">
+    <div class="card"><h3>1. Raízes exatas</h3><p>Memoriza alguns quadrados perfeitos:</p><div class="math">√4 = 2 · √9 = 3 · √16 = 4<br>√25 = 5 · √49 = 7 · √64 = 8<br>√81 = 9 · √100 = 10</div></div>
+    <div class="card"><h3>2. Simplificação de radicais</h3><p>Procura um fator que seja um quadrado perfeito.</p><div class="math">√12 = √(4 × 3)<br>= √4 × √3 = 2√3</div><div class="tip">Outro exemplo: √50 = √(25 × 2) = 5√2.</div></div>
+    <div class="card"><h3>3. Raízes cúbicas</h3><div class="math">∛8 = 2<br>∛64 = 4<br>∛125 = 5</div><p>Porque 2³ = 8, 4³ = 64 e 5³ = 125.</p></div>
+    <div class="card"><h3>4. Operações com radicais semelhantes</h3><p>Quando os radicais têm a mesma parte radical, somam-se ou subtraem-se os coeficientes.</p><div class="math">2√3 + 4√3 = 6√3<br>7√2 − 3√2 = 4√2</div><div class="warn">Atenção: √2 + √3 não é igual a √5.</div></div>
+  </div>
+  <div class="card"><h3>Exemplo resolvido: √125</h3><ol><li>Decompõe: 125 = 25 × 5.</li><li>Separa as raízes: √125 = √25 × √5.</li><li>Calcula a raiz exata: √25 = 5.</li><li>Resultado simplificado: <b>5√5</b>.</li></ol></div>
+</section>
+<section id="pratica" class="section">
+  <div class="card"><h2>✏️ Exercícios de prática</h2><p>Escolhe uma resposta em cada pergunta e carrega em “Corrigir respostas”.</p><div id="quiz"></div><button class="action" id="checkQuiz">Corrigir respostas</button> <button class="action secondary" id="resetQuiz">Tentar novamente</button><div id="quizFeedback" class="feedback" aria-live="polite"></div></div>
+  <div class="card"><h3>Desafio extra</h3><p>Simplifica a expressão abaixo. Escreve a resposta no campo.</p><div class="math">√48 = ?</div><label for="extra">A tua resposta</label><input id="extra" placeholder="Ex.: 4√3"><button class="action" id="checkExtra">Verificar</button><div id="extraFeedback" class="feedback" aria-live="polite"></div></div>
+  <div class="card"><h2>🧠 Resolve um exercício online</h2><p>Escolhe um exercício, escreve a tua resposta e verifica se está correta. Podes usar números, frações ou radicais.</p>
+    <label for="exerciseChoice">Escolhe o exercício</label>
+    <select id="exerciseChoice">
+      <option value="1">1. Calcula: 4²</option>
+      <option value="2">2. Calcula: 2³ × 2²</option>
+      <option value="3">3. Calcula: 3⁻²</option>
+      <option value="4">4. Simplifica: √72</option>
+      <option value="5">5. Simplifica: √125</option>
+      <option value="6">6. Calcula: ∛64</option>
+      <option value="7">7. Simplifica: 3√2 + 5√2</option>
+      <option value="8">8. Simplifica: √48</option>
+    </select>
+    <div id="exercisePrompt" class="math" style="margin-top:12px">4² = ?</div>
+    <label for="writtenAnswer">A tua resposta</label>
+    <input id="writtenAnswer" placeholder="Escreve aqui a resposta">
+    <button class="action" id="checkWritten">Corrigir exercício</button>
+    <button class="action secondary" id="showHint">Mostrar uma dica</button>
+    <div id="writtenFeedback" class="feedback" aria-live="polite"></div>
+    <div id="hintText" class="small"></div>
+  </div>
+</section>
+</main>
+<footer>Matemática Fácil · Feito para aprender com confiança.<br><span class="small">O progresso é guardado apenas durante esta sessão no site.</span></footer>
+<script>
+const tabs=document.querySelectorAll('.tab'),sections=document.querySelectorAll('.section');
+function showTab(id){sections.forEach(s=>s.classList.toggle('active',s.id===id));tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'});}
+tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.go)));
+const questions=[
+ {q:'1. Quanto é 2³?',opts:['6','8','9'],a:1,exp:'2³ = 2 × 2 × 2 = 8.'},
+ {q:'2. Simplifica 3² × 3³.',opts:['3⁵ = 243','3⁶ = 729','6⁵'],a:0,exp:'Com a mesma base, somamos os expoentes: 3² × 3³ = 3⁵ = 243.'},
+ {q:'3. Quanto é 5⁰?',opts:['0','5','1'],a:2,exp:'Qualquer base diferente de zero elevada a zero é igual a 1.'},
+ {q:'4. Quanto é √49?',opts:['6','7','8'],a:1,exp:'7 × 7 = 49, por isso √49 = 7.'},
+ {q:'5. Simplifica √12.',opts:['2√3','3√2','6√2'],a:0,exp:'√12 = √(4 × 3) = 2√3.'},
+ {q:'6. Quanto é ∛27?',opts:['3','6','9'],a:0,exp:'3 × 3 × 3 = 27, logo ∛27 = 3.'},
+ {q:'7. Quanto é 2⁻²?',opts:['−4','1/4','4'],a:1,exp:'2⁻² = 1/2² = 1/4.'},
+ {q:'8. Simplifica √50.',opts:['10√5','5√2','25√2'],a:1,exp:'√50 = √(25 × 2) = 5√2.'}
+];
+const quiz=document.getElementById('quiz');
+function renderQuiz(){quiz.innerHTML='';questions.forEach((q,i)=>{const d=document.createElement('div');d.className='question';d.innerHTML=`<strong>${q.q}</strong><div class="options">${q.opts.map((o,j)=>`<label class="opt"><input type="radio" name="q${i}" value="${j}"><span>${o}</span></label>`).join('')}</div><div id="exp${i}" class="small"></div>`;quiz.appendChild(d);});document.getElementById('quizFeedback').textContent='';}
+let answered=0,correct=0;
+function updateProgress(){document.getElementById('progressBar').style.width=(answered/8*100)+'%';document.getElementById('progressText').textContent=answered?`Respondeste a ${answered} de 8 perguntas e acertaste ${correct}.`:'Ainda não respondeste a exercícios.';}
+document.getElementById('checkQuiz').addEventListener('click',()=>{let n=0,c=0;questions.forEach((q,i)=>{const sel=document.querySelector(`input[name="q${i}"]:checked`),exp=document.getElementById('exp'+i);if(sel){n++;if(Number(sel.value)===q.a)c++;exp.innerHTML=(Number(sel.value)===q.a?'✓ Correto! ':'✗ Ainda não. ')+q.exp;exp.className=Number(sel.value)===q.a?'feedback correct':'feedback wrong';}else{exp.textContent='Escolhe uma resposta. '+q.exp;exp.className='small';}});answered=n;correct=c;updateProgress();document.getElementById('quizFeedback').textContent=`Resultado: ${c}/${n||0} corretas.`;document.getElementById('quizFeedback').className='feedback '+(c===8?'correct':'');});
+document.getElementById('resetQuiz').addEventListener('click',()=>{renderQuiz();answered=0;correct=0;updateProgress();});
+document.getElementById('checkExtra').addEventListener('click',()=>{const v=document.getElementById('extra').value.toLowerCase().replace(/\s/g,'').replace(/√/g,'√');const f=document.getElementById('extraFeedback');if(['4√3','4raiz3','4raizquadrada3'].includes(v)){f.textContent='Muito bem! √48 = √(16 × 3) = 4√3.';f.className='feedback correct';}else{f.textContent='Tenta outra vez: escreve 48 como 16 × 3 e simplifica √16.';f.className='feedback wrong';}});
+const writtenExercises = {
+ '1': {prompt:'4² = ?', answers:['16'], hint:'Multiplica 4 por si próprio: 4 × 4.', explanation:'4² = 4 × 4 = 16.'},
+ '2': {prompt:'2³ × 2² = ?', answers:['32','2^5','2⁵'], hint:'As bases são iguais. Soma os expoentes e calcula 2⁵.', explanation:'2³ × 2² = 2⁵ = 32.'},
+ '3': {prompt:'3⁻² = ?', answers:['1/9','1/3^2','1/3²','0.111','0,111'], hint:'Expoente negativo: inverte a potência, ficando 1/3².', explanation:'3⁻² = 1/3² = 1/9.'},
+ '4': {prompt:'Simplifica √72.', answers:['6√2','6raiz2','6raizquadrada2'], hint:'72 = 36 × 2. Separa √36 × √2.', explanation:'√72 = √(36 × 2) = 6√2.'},
+ '5': {prompt:'Simplifica √125.', answers:['5√5','5raiz5','5raizquadrada5'], hint:'125 = 25 × 5. Separa √25 × √5.', explanation:'√125 = √(25 × 5) = 5√5.'},
+ '6': {prompt:'∛64 = ?', answers:['4'], hint:'Que número multiplicado por si próprio três vezes dá 64?', explanation:'4 × 4 × 4 = 64, logo ∛64 = 4.'},
+ '7': {prompt:'3√2 + 5√2 = ?', answers:['8√2','8raiz2','8raizquadrada2'], hint:'Os radicais são semelhantes. Soma 3 + 5 e mantém √2.', explanation:'3√2 + 5√2 = 8√2.'},
+ '8': {prompt:'Simplifica √48.', answers:['4√3','4raiz3','4raizquadrada3'], hint:'48 = 16 × 3. Separa √16 × √3.', explanation:'√48 = √(16 × 3) = 4√3.'}
+};
+const exerciseChoice = document.getElementById('exerciseChoice');
+const exercisePrompt = document.getElementById('exercisePrompt');
+function updateWrittenExercise(){exercisePrompt.textContent=writtenExercises[exerciseChoice.value].prompt;document.getElementById('writtenAnswer').value='';document.getElementById('writtenFeedback').textContent='';document.getElementById('hintText').textContent='';}
+exerciseChoice.addEventListener('change',updateWrittenExercise);
+document.getElementById('checkWritten').addEventListener('click',()=>{
+ const ex=writtenExercises[exerciseChoice.value];
+ const answer=document.getElementById('writtenAnswer').value.toLowerCase().replace(/\\s/g,'').replace(/√/g,'√').replace(/,/g,'.');
+ const feedback=document.getElementById('writtenFeedback');
+ if(!answer){feedback.textContent='Escreve a tua resposta antes de corrigir.';feedback.className='feedback wrong';return;}
+ if(ex.answers.includes(answer)){feedback.textContent='Correto! '+ex.explanation;feedback.className='feedback correct';}
+ else{feedback.textContent='Ainda não está correto. '+ex.explanation;feedback.className='feedback wrong';}
+});
+document.getElementById('showHint').addEventListener('click',()=>{document.getElementById('hintText').textContent='Dica: '+writtenExercises[exerciseChoice.value].hint;});
+renderQuiz();updateProgress();
+</script>
+</body>
+</html>
